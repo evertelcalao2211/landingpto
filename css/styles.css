@@ -1,0 +1,680 @@
+
+/* ===== ESTILOS GENERALES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #f8f5f2 0%, #fdfcfb 100%);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===== SECCIÓN HERO ===== */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.animate-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.5s forwards 0.5s;
+}
+
+.hero-text {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.5s forwards 1s;
+}
+
+.btn-hero {
+    display: inline-block;
+    background: #e9437a;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.5s forwards 1.5s;
+    transition: all 0.3s ease;
+}
+
+.btn-hero:hover {
+    background: #d42a64;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* ===== SECCIÓN MOTIVACIÓN CON TEXTO EN MOVIMIENTO ===== */
+.motivation {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #fcfafb 0%, #fcfbfb 100%); /* Fondo estático */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.motivation-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Título con movimiento perpetuo */
+.motivation-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: rgb(14, 13, 13);
+    animation: textFloat 6s ease-in-out infinite;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+
+/* Subtítulo con movimiento diferente */
+.motivation-content p {
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    color: rgb(14, 13, 13);
+    animation: textPulse 4s ease-in-out infinite;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+}
+
+/* Botón con movimiento independiente */
+.btn-motivation {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+    color: rgb(248, 247, 247);
+    padding: clamp(12px, 3vw, 18px) clamp(35px, 6vw, 60px);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    animation: buttonShake 5s ease-in-out infinite;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.btn-motivation:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    animation: none;
+}
+
+/* ===== ANIMACIONES SUAVES Y PERMANENTES ===== */
+@keyframes textFloat {
+    0%, 100% { 
+        transform: translateY(0) rotate(0deg);
+    }
+    33% { 
+        transform: translateY(-5px) rotate(-0.5deg);
+    }
+    66% { 
+        transform: translateY(5px) rotate(0.5deg);
+    }
+}
+
+@keyframes textPulse {
+    0%, 100% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% { 
+        transform: scale(1.02);
+        opacity: 0.9;
+    }
+}
+
+@keyframes buttonShake {
+    0%, 100% { 
+        transform: rotate(0deg);
+    }
+    25% { 
+        transform: rotate(0.5deg);
+    }
+    75% { 
+        transform: rotate(-0.5deg);
+    }
+}
+
+/* Efecto de brillo sutil en texto */
+.motivation-content h2 {
+    position: relative;
+    display: inline-block;
+}
+
+.motivation-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #0e0d0d, transparent);
+    animation: glowLine 3s ease-in-out infinite;
+}
+
+@keyframes glowLine {
+    0%, 100% { 
+        opacity: 0.5;
+        transform: scaleX(0.8);
+    }
+    50% { 
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+/* ===== SECCIÓN PRODUCTOS ===== */
+.products {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    text-align: center;
+}
+
+.products h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    padding: 0 20px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.product-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 25px;
+}
+
+.product-info h3 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.product-info p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e9437a;
+    margin: 15px 0;
+}
+
+.btn-buy {
+    display: inline-block;
+    background: linear-gradient(135deg, #e9437a 0%, #d42a64 100%);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-buy:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(233, 67, 122, 0.3);
+}
+
+
+/* ===== ANIMACIÓN INFINITA  DE TITULO IZQUIERDA-DERECHA-IZQUIERDA ===== */
+.products h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 50px;
+    animation: infiniteSlide 4s ease-in-out infinite;
+}
+
+@keyframes infiniteSlide {
+    0%, 100% {
+        transform: translateX(-100px);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateX(100px);
+        opacity: 1;
+    }
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .animate-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-text {
+        font-size: 1.2rem;
+    }
+    
+    .motivation-content h2 {
+        font-size: 2rem;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== SECCIÓN TESTIMONIOS ===== */
+.testimonials {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 50px;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.testimonial-text {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+
+
+/* ===== ANIMACIÓN FADE INFINITA PARA TÍTULO TESTIMONIOS ===== */
+.testimonials h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 50px;
+    animation: fadeInOut 3s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateY(15px) scale(0.95);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background: #0d0d0e;
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 80px;
+}
+
+.footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer p {
+    margin: 10px 0;
+    font-size: 2.1rem;
+}
+
+.footer strong {
+    color: #e9437a;
+}
+
+
+
+/* Animaciones de aparición */
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Efectos hover para tarjetas */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* Efectos hover para botones */
+.btn-buy, .btn-hero, .btn-motivation {
+    transition: all 0.3s ease;
+}
+
+.btn-buy:hover, .btn-hero:hover, .btn-motivation:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+
+/* ===== SECCIÓN CONTACTO ===== */
+.contact {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.contact .container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 40px;
+}
+
+.contact-form {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #4F46E5;
+}
+
+.contact-form textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.contact-form button {
+    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+}
+
+
+/* ===== BOTÓN WHATSAPP FLOTante Y ANIMADO ===== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: whatsappBounce 2s ease-in-out infinite;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    animation: whatsappSpin 1s ease-in-out, whatsappPulse 1s infinite;
+    transform: scale(1.1);
+    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
+}
+
+/* Animaciones keyframes */
+@keyframes whatsappBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes whatsappSpin {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+@keyframes whatsappPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+}
+
+/* Efecto de burbujas flotantes */
+.whatsapp-float::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    animation: bubbleFloat 3s ease-in-out infinite;
+}
+
+@keyframes bubbleFloat {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Mensaje emergente en hover */
+.whatsapp-float::after {
+    content: '¡Escríbenos!';
+    position: absolute;
+    right: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #25D366;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
+
+.whatsapp-float:hover::after {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .whatsapp-float::after {
+        content: '¡WhatsApp!';
+        font-size: 12px;
+        right: 60px;
+    }
+}
+
+
+/* Optimizar rendering para animaciones */
+.whatsapp-float,
+.motivation-content h2,
+.products h2,
+.testimonials h2 {
+    will-change: transform, opacity; /* Prepara la GPU */
+    backface-visibility: hidden; /* Optimiza transform */
+}
